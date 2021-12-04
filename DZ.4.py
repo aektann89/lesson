@@ -1,13 +1,25 @@
-for x in list(range(000000, 1000000, 1)):
-    a = int(x)
-    sum_main = 0
-    sum_second = 0
-    for x in range(6):
-        if x < 3:
-            sum_main += a // 10 ** x % 10
+while True:
+    # Генерируем список билетов от 000000 до 1000000 с шагом 1
+    for x in list(range(000000, 1000000, 1)):
+        # Объявить две переменные счетчики для несчастливых билетов и для счастливых
+        count_l = 0
+        count_unl = 0
+        # Объявляю переменную которая переводит мою переменную х в целые числа
+        a = int(x)
+        # Объявляю 2 две переменные для сравнения первых трех чисел с последними тремя
+        sum_main = 0
+        sum_second = 0
+        # Собственно, само сравнение и расчеты
+        for x in range(6):
+            if x < 3:
+                sum_main += a // 10 ** x % 10
+            else:
+                sum_second += a // 10 ** x % 10
+        if sum_second == sum_main:
+            # Если суммы равны увеличивать значение в переменной, которая у меня подразумевает кол-во счастливых билетов на 1
+            count_l += 1
+            print('Счастливых билетов', count_l)
+
         else:
-            sum_second += a // 10 ** x % 10
-    if sum_second == sum_main:
-        print('lucky')
-    else:
-        print("unlucky")
+            count_unl += 1
+            print('Не счастливых билетов', count_unl)
