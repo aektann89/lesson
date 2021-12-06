@@ -1,24 +1,28 @@
-# while True:
-#     print("Введите exit что бы завершить работу с программой")
-#     action = input("Введите оператор: (+,-,*,/)")
-#     if action == 'exit':
-#         break
-#     num1 = (input("num1="))
-#     num2 = (input("num2="))
-#
-#
-#
-#     if action in ('+', '-', '*', '/'):
-#
-#         if action == "+":
-#             print(num1+num2)
-#         elif action == '-':
-#             print(float(num1)-float(num2))
-#         elif action == '*':
-#             print(num1*num2)
-#         elif action == '/':
-#             print(float(num1)/float(num2))
-#
-#
-#     else:
-#         print("Указанный оператор не существует")
+operations = []
+
+current_element = '4444'
+
+while current_element != '=':
+    current_element = input('Введите элемент:')
+    if current_element == '=':
+        break
+    operations = operations + [current_element]
+current_operator = ''
+result = 0
+for element in operations:
+    if element.isdigit():
+        element = int(element)
+
+        if current_operator == '+' or current_operator == '':
+            result = result + element
+        elif current_operator == '-':
+            result = result + element
+        elif current_operator == '*':
+            result = result * element
+        else:
+            result = result / element
+
+    else:
+        current_operator = element
+
+print('Результат =', result)
