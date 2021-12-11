@@ -1,7 +1,7 @@
 import re
 
 while True:
-    items = input('Введите числовую строку для проверки: \n')
+    items = input('Введите строку: \n')
 
     if items == 'exit':
         break
