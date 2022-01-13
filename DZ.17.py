@@ -3,21 +3,21 @@ class Eukaryotes:
     genetic_apparatus = 'ядро'
     def check_kernel(self):
         print(f'Мой генетический апарат содержет {self.genetic_apparatus}.', 'Я отношусь к Эукариотом')
-class Animals:
+class Animals(Eukaryotes):
     type_of_food = 'готовые органические соеденения'
     jaws = 'челюсти'
     def move_jaws(self):
         print(f'**Молчаливо открывает и закрывает {self.jaws}**')
     def chek_type_of_food(self):
         print(f'Мой тип питания это {self.type_of_food}.', 'Я животное')
-class chordates:
+class chordates(Animals):
     body_structure = 'хорда'
     gills = 'жабры'
     def move_gills(self):
         print(f'**Надувает {self.gills}**')
     def chek_body_strukture(self):
         print(f'У меня есть {self.body_structure}.', 'Я, хордовое животное')
-class Actinopterygii:
+class Actinopterygii(chordates):
     fin_right = 'Правый плавник'
     fin_left = 'Левый плавник'
     fin_top = 'Верхний плавник'
@@ -30,7 +30,7 @@ class Actinopterygii:
         print(f'**Двигает {self.tail}**')
     def chek_fin_structure(self):
         print(f'Я отношусь к классу лучеперых рыб,{self.fin_structure}')
-class herring:
+class herring(Actinopterygii):
     features = 'Тело сжатое с боков, с зазубренным краем брюха. Чешуя умеренная или крупная, редко мелкая. Верхняя челюсть не выдаётся за нижнюю.'
     distribution_area = 'Атлантический океан'
     def chek_features(self):
@@ -38,7 +38,7 @@ class herring:
     def distribution(self):
         print(f'Моя среда обитания {self.distribution_area}')
 
-class Breams:
+class Breams(Actinopterygii):
     features = 'Тело сильно сжатое с боков, высокое или удлинённое. Чешуя умеренной величины. Спинной плавник короткий и высокий без толстого шипа'
     def chek_features(self):
         print(f'Мой род - Лещи, у меня {self.features}')
@@ -46,7 +46,7 @@ class Breams:
     def distribution(self):
         print(f'Я {self.distribution_area}')
 
-class Atlantic_herring(Eukaryotes, Animals, chordates, Actinopterygii, herring):
+class Atlantic_herring(herring):
     def voice(self):
         print(f'Привет! Я Атлантическая сельдь и меня зовут {self.atlantic_herring_mane}')
     def rofl(self):
@@ -54,7 +54,7 @@ class Atlantic_herring(Eukaryotes, Animals, chordates, Actinopterygii, herring):
 
     def __init__(self, atlantic_herring_mane):
          self.atlantic_herring_mane = atlantic_herring_mane
-class Bream(Eukaryotes, Animals, chordates, Actinopterygii, Breams):
+class Bream(Breams):
     def voice(self):
         print(f'Привет! Я Лещ и меня зовут {self.bream_name}')
     def rofl(self):
